@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Button_Manager : MonoBehaviour
 {
-   
-    public GameObject[] cubes; // Array of cubes (or objects) to attach components
-
-    
-    public AudioClip[] audioClips; // Array of audio clips
+    public GameObject[] Keys; // Array of key objects
+    public AudioClip[] KeyTones; // Corresponding audio clips
+    public float fadeOutDuration = 0.5f; // Duration of fade-out effect
 
     void Start()
     {
@@ -15,51 +16,96 @@ public class Button_Manager : MonoBehaviour
 
     void AttachComponentsToObjects()
     {
-        if (cubes.Length == 0)
+        if (Keys.Length == 0)
         {
-            Debug.LogWarning("No cubes assigned to add components.");
+            Debug.LogWarning("No keys assigned to add components.");
             return;
         }
 
-        if (cubes.Length != audioClips.Length)
+        if (Keys.Length != KeyTones.Length)
         {
-            Debug.LogError("The number of cubes and audio clips do not match. Please make sure they are the same length.");
+            Debug.LogError("The number of keys and audio clips do not match. Please make sure they are the same length.");
             return;
         }
 
-        for (int i = 0; i < cubes.Length; i++)
+        for (int i = 0; i < Keys.Length; i++)
         {
-            GameObject cube = cubes[i];
+            GameObject Key = Keys[i];
 
-            if (cube == null) continue;
+            if (Key == null) continue;
 
-            // Add BoxCollider if not already attached
-            if (cube.GetComponent<BoxCollider>() == null)
+            // Add MeshCollider if not already attached
+            MeshCollider meshCollider = Key.GetComponent<MeshCollider>();
+            if (meshCollider == null)
             {
-                cube.AddComponent<BoxCollider>();
-                Debug.Log($"BoxCollider added to {cube.name}");
+                meshCollider = Key.AddComponent<MeshCollider>();
+                meshCollider.convex = true; // Required for interactions
+                Debug.Log($"MeshCollider added to {Key.name}");
             }
 
-            // Automatically add an AudioSource component if not already attached
-            AudioSource audioSource = cube.GetComponent<AudioSource>();
-            if (audioSource == null)
+            // Add or get AudioSource
+            AudioSource KeyToneSpeaker = Key.GetComponent<AudioSource>();
+            if (KeyToneSpeaker == null)
             {
-                audioSource = cube.AddComponent<AudioSource>();
-                audioSource.playOnAwake = false; // Prevent automatic playback
-
-                if (audioClips[i] != null)
-                {
-                    audioSource.clip = audioClips[i];
-                    Debug.Log($"AudioSource added to {cube.name} with clip: {audioClips[i].name}");
-                }
-                else
-                {
-                    Debug.LogWarning($"No audio clip assigned for {cube.name}. No sound will play.");
-                }
+                KeyToneSpeaker = Key.AddComponent<AudioSource>();
+                KeyToneSpeaker.playOnAwake = false;
             }
-            else
+
+            // Assign the correct audio clip
+            if (KeyTones[i] != null)
             {
-                Debug.Log($"AudioSource already exists on {cube.name}");
+                KeyToneSpeaker.clip = KeyTones[i];
+                Debug.Log($"AudioSource assigned to {Key.name} with clip: {KeyTones[i].name}");
+            }
+
+            // Add XRSimpleInteractable if not already attached
+            XRSimpleInteractable interactable = Key.GetComponent<XRSimpleInteractable>();
+            if (interactable == null)
+            {
+                interactable = Key.AddComponent<XRSimpleInteractable>();
+                Debug.Log($"XRSimpleInteractable added to {Key.name}");
+            }
+
+            // Capture index for delegate
+            int index = i;
+            interactable.firstHoverEntered.AddListener((_) => PlayTone(index));
+            interactable.lastHoverExited.AddListener((_) => StartCoroutine(FadeOutTone(index)));
+        }
+    }
+
+    void PlayTone(int index)
+    {
+        if (Keys[index] != null)
+        {
+            AudioSource audioSource = Keys[index].GetComponent<AudioSource>();
+            if (audioSource != null && audioSource.clip != null)
+            {
+                audioSource.volume = 1f; // Ensure full volume on play
+                audioSource.Play();
+            }
+        }
+    }
+
+    IEnumerator FadeOutTone(int index)
+    {
+        if (Keys[index] != null)
+        {
+            AudioSource audioSource = Keys[index].GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                float startVolume = audioSource.volume;
+
+                // Gradually decrease volume over fadeOutDuration
+                for (float t = 0; t < fadeOutDuration; t += Time.deltaTime)
+                {
+                    audioSource.volume = Mathf.Lerp(startVolume, 0, t / fadeOutDuration);
+                    yield return null;
+                }
+
+                // Ensure it's fully silent and stop playback
+                audioSource.volume = 0;
+                audioSource.Stop();
+                audioSource.volume = 1f; // Reset volume for next play
             }
         }
     }
