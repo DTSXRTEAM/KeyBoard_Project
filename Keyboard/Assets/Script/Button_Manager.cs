@@ -11,6 +11,33 @@ public class Button_Manager : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < Keys.Length; i++)
+        {
+            // Duplicate the key (Instantiate creates a new copy)
+            GameObject Visual = Instantiate(Keys[i], Keys[i].transform.position, Keys[i].transform.rotation);
+            Visual.name = "Visual";
+
+            // Make it a child of the original key
+            Visual.transform.SetParent(Keys[i].transform);
+            Visual.transform.localScale = Vector3.one;
+
+            // Remove unwanted components from the duplicate
+            if (Visual.TryGetComponent(out BoxCollider boxCollider))
+            {
+                Destroy(boxCollider);
+            }
+
+            if (Keys[i].TryGetComponent(out MeshFilter meshFilter))
+            {
+                Destroy(meshFilter);
+            }
+
+            if (Keys[i].TryGetComponent(out MeshRenderer meshRenderer))
+            {
+                Destroy(meshRenderer);
+            }
+        }
+
         AttachComponentsToObjects();
     }
 
@@ -31,17 +58,7 @@ public class Button_Manager : MonoBehaviour
         for (int i = 0; i < Keys.Length; i++)
         {
             GameObject Key = Keys[i];
-
             if (Key == null) continue;
-
-            // Add MeshCollider if not already attached
-            MeshCollider meshCollider = Key.GetComponent<MeshCollider>();
-            if (meshCollider == null)
-            {
-                meshCollider = Key.AddComponent<MeshCollider>();
-                meshCollider.convex = true; // Required for interactions
-                Debug.Log($"MeshCollider added to {Key.name}");
-            }
 
             // Add or get AudioSource
             AudioSource KeyToneSpeaker = Key.GetComponent<AudioSource>();
@@ -55,7 +72,7 @@ public class Button_Manager : MonoBehaviour
             if (KeyTones[i] != null)
             {
                 KeyToneSpeaker.clip = KeyTones[i];
-                Debug.Log($"AudioSource assigned to {Key.name} with clip: {KeyTones[i].name}");
+                Debug.Log($"Audio clip '{KeyTones[i].name}' assigned to {Key.name}");
             }
 
             // Add XRSimpleInteractable if not already attached
@@ -83,6 +100,14 @@ public class Button_Manager : MonoBehaviour
                 audioSource.volume = 1f; // Ensure full volume on play
                 audioSource.Play();
             }
+
+            var vis = Keys[index].gameObject.transform.Find("Visual");
+
+            Vector3 originalPosition = vis.transform.position;  // Save original position of the key
+            Vector3 newPosition = originalPosition;
+            newPosition.y -= 0.01f; // Move key down slightly
+            vis.transform.position = newPosition;
+
         }
     }
 
@@ -107,6 +132,12 @@ public class Button_Manager : MonoBehaviour
                 audioSource.Stop();
                 audioSource.volume = 1f; // Reset volume for next play
             }
+            var vis = Keys[index].gameObject.transform.Find("Visual");
+
+            Vector3 originalPosition = vis.transform.position;  // Save original position of the key
+            Vector3 newPosition = originalPosition;
+            newPosition.y += 0.01f; // Move key down slightly
+            vis.transform.position = newPosition;
         }
     }
 }
