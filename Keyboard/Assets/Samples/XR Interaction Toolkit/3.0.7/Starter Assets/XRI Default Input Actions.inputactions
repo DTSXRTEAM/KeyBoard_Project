@@ -3313,6 +3313,102 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "left_vive_HTC",
+            "id": "01cf730f-5b04-4920-b708-072c5181ef1c",
+            "actions": [
+                {
+                    "name": "left tracker position",
+                    "type": "Value",
+                    "id": "61ee96e3-ff27-4cfb-83be-6d3547b9764f",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "left tracker rotation",
+                    "type": "Value",
+                    "id": "32aaa250-dade-40ba-b3c6-41a94ea3d9a6",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d488aa91-f8b7-410c-baad-d658149a3f90",
+                    "path": "<XRViveTracker>{Left Elbow}/devicePose/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "left tracker position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93771838-d2c0-4f28-a416-f25e9bd48f9a",
+                    "path": "<XRViveTracker>{Left Elbow}/devicePose/rotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "left tracker rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "right_vive_HTC",
+            "id": "42db54ad-9c93-4ec5-b885-1b498bf94ede",
+            "actions": [
+                {
+                    "name": "Right tracker position",
+                    "type": "Value",
+                    "id": "3461e2e4-6a2e-4eaa-a250-3abc44c7470c",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Right tracker Rotation",
+                    "type": "Value",
+                    "id": "48f87488-8a14-4cf3-91dc-053dad229577",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e0bbea31-02b3-4278-8894-cfc09e500c4b",
+                    "path": "<XRViveTracker>{Right Elbow}/devicePose/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right tracker position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2a43e68-3509-4e04-bf04-7163d7e12768",
+                    "path": "<XRViveTracker>{Right Elbow}/devicePose/rotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right tracker Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

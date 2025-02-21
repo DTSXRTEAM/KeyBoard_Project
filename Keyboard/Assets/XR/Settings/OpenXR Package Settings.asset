@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: -2981309495783695995}
   - {fileID: -5360665046841127804}
   - {fileID: 5461308981679777444}
+  - {fileID: 131195313128815455}
   - {fileID: -3850786385977735276}
   - {fileID: 7994744592738178025}
   - {fileID: -3997265660826404982}
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
     m_List: 00000000
-  m_depthSubmissionMode: 1
+  m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
   m_foveatedRenderingApi: 0
@@ -479,6 +480,7 @@ MonoBehaviour:
   - {fileID: 829522996266639320}
   - {fileID: -2927096342777644215}
   - {fileID: 4182351962476765191}
+  - {fileID: 5892067205072263727}
   - {fileID: 6309769731482892094}
   - {fileID: -1646357567910528746}
   - {fileID: 8574785684500044406}
@@ -1079,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3cf747fae1be344b569049595fd510, type: 3}
   m_Name: VIVECosmosProfile Standalone
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: VIVE Cosmos Controller Interaction
   version: 0.0.1
   featureIdInternal: vive.openxr.feature.cosmoscontroller
@@ -1147,6 +1149,7 @@ MonoBehaviour:
   - {fileID: 6159085103658026205}
   - {fileID: 4289773156929596538}
   - {fileID: -3414757032043037558}
+  - {fileID: 6760274488220374690}
   - {fileID: -6977262349079835165}
   - {fileID: -4091299116049980538}
   - {fileID: 551881195228897021}
@@ -1411,6 +1414,29 @@ MonoBehaviour:
   - {fileID: -772954652998075416}
   - {fileID: 4560057300449946647}
   - {fileID: -5570171365040428209}
+--- !u!114 &131195313128815455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cfc63f8eb6744cb2c69c6d6a4cbf8, type: 3}
+  m_Name: MeshingTeapotFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meshing Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.meshing
+  openxrExtensionStrings: 
+  company: HTC
+  priority: 0
+  required: 0
+  m_XrInstance: 0
+  m_XrSession: 0
+  m_systemid: 0
 --- !u!114 &314032612875065367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,6 +1935,29 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+--- !u!114 &5892067205072263727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cfc63f8eb6744cb2c69c6d6a4cbf8, type: 3}
+  m_Name: MeshingTeapotFeature Metro
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meshing Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.meshing
+  openxrExtensionStrings: 
+  company: HTC
+  priority: 0
+  required: 0
+  m_XrInstance: 0
+  m_XrSession: 0
+  m_systemid: 0
 --- !u!114 &5986820697549829322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2058,29 @@ MonoBehaviour:
   company: HTC
   priority: 0
   required: 0
+--- !u!114 &6760274488220374690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cfc63f8eb6744cb2c69c6d6a4cbf8, type: 3}
+  m_Name: MeshingTeapotFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meshing Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.meshing
+  openxrExtensionStrings: 
+  company: HTC
+  priority: 0
+  required: 0
+  m_XrInstance: 0
+  m_XrSession: 0
+  m_systemid: 0
 --- !u!114 &6979742066914746678
 MonoBehaviour:
   m_ObjectHideFlags: 0
