@@ -87,6 +87,7 @@ Material:
     - Vector1_69b40c1ee2e1422cbfcae389f53b36a9: 1
     - Vector1_8671db567d5d4784b29e8ff511bd8f1e: 1
     - _AlphaClip: 0
+    - _AlphaToMask: 0
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
@@ -151,7 +152,7 @@ Material:
     - _ColorBottom: {r: 0.12156857, g: 0.12549016, b: 0.12941167, a: 1}
     - _ColorTop: {r: 0.19607836, g: 0.20392147, b: 0.21176466, a: 1}
     - _Color_1: {r: 0, g: 0, b: 0, a: 0.5803922}
-    - _EdgeColor: {r: 0.9, g: 0.9, b: 0.9, a: 0.8}
+    - _EdgeColor: {r: 0.9, g: 0.9, b: 0.9, a: 0}
     - _FadeCenter: {r: 0, g: 0, b: 0.15, a: 0}
     - _FadeCenter_1: {r: 1, g: 4, b: 1, a: 0}
     - _FadeScale: {r: 1, g: 4, b: 1, a: 0}
