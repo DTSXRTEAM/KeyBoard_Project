@@ -1,0 +1,5 @@
+C:/Unityproject/KeyBoard_Project/Keyboard/.utmp/RelWithDebInfo/625r4g46/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Unityproject/KeyBoard_Project/Keyboard/.utmp/RelWithDebInfo/625r4g46/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Unityproject/KeyBoard_Project/Keyboard/.utmp/RelWithDebInfo/625r4g46/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Unityproject/KeyBoard_Project/Keyboard/.utmp/RelWithDebInfo/625r4g46/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Unityproject/KeyBoard_Project/Keyboard/.utmp/RelWithDebInfo/625r4g46/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
