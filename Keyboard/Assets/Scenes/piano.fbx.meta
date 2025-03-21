@@ -3,7 +3,47 @@ guid: 3c48c6e85e997384fa5b5a01ba930f23
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackPiano
+    second: {fileID: 2100000, guid: bdf5b8f7c97aeb14b9627aff4e33970b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackPlastic
+    second: {fileID: 2100000, guid: 50a7cbd3fda376f47be7710db93d28bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: 722039f443caffb42952b46611829357, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Key_black
+    second: {fileID: 2100000, guid: 839594f2562088a4a8f44d035e72fa0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Key_white
+    second: {fileID: 2100000, guid: a19e8b1874faabb4ca38da33286f6e28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Key_white.001
+    second: {fileID: 2100000, guid: 69ba43b7de3d76d46981688785960792, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: e9dc1b7f2d51e644791491dca809a277, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 6408c245b65a73944996aae2925b7287, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
